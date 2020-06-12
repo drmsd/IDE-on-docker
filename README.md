@@ -6,20 +6,20 @@ These are the steps I used to create my development environment using docker ima
 Step 1.
   Create a docker volume for holding maven dependencies. This reduces the downloads from central maven repository.
   
-# -----------------------------------------------------------------------------------------------------------------------------
-#
-# creating and using local docker volume as the maven repository
-#
-# 1. create docker volume
-#      docker volume create --name maven-repo
-#
-# 2. load volume with maven artifacts
-#      docker run -it -v maven-repo:/root/.m2 maven mvn archetype:generate # will download artifacts
-#
-# 3. use for subsequent maven builds
-#      docker run -it -v maven-repo:/root/.m2 maven mvn archetype:generate # will reuse downloaded artifacts
-#
-# -----------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
+
+ creating and using local docker volume as the maven repository
+
+ 1. create docker volume
+      docker volume create --name maven-repo
+
+ 2. load volume with maven artifacts
+      docker run -it -v maven-repo:/root/.m2 maven mvn archetype:generate # will download artifacts
+
+ 3. use for subsequent maven builds
+      docker run -it -v maven-repo:/root/.m2 maven mvn archetype:generate # will reuse downloaded artifacts
+
+-----------------------------------------------------------------------------------------------------------------------------
 
 Step 2.
   Create a maven project by running archetype generate and then edit pom.xml to fix dependencies. Note that the project files are created in the subdirectory temp3 of current working directory.
