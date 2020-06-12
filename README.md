@@ -11,12 +11,15 @@ Step 1.
  creating and using local docker volume as the maven repository
 
  1. create docker volume
+ 
       docker volume create --name maven-repo
 
  2. load volume with maven artifacts
+ 
       docker run -it -v maven-repo:/root/.m2 maven mvn archetype:generate # will download artifacts
 
  3. use for subsequent maven builds
+ 
       docker run -it -v maven-repo:/root/.m2 maven mvn archetype:generate # will reuse downloaded artifacts
 
 -----------------------------------------------------------------------------------------------------------------------------
