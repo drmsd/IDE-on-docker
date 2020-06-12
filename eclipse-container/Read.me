@@ -1,0 +1,14 @@
+#
+# how to build and run this application
+#
+# 1. within this directory run following to build container
+#      docker build -t eclipse-photon .
+#
+# 2. within this directory execute following to run container
+#      docker run --rm -e DISPLAY=${DISPLAY} -v /tmp/.X11-unix:/tmp/.X11-unix \
+#             -v maven-repo:/home/developer/.m2 \
+#             -v eclipse-repo:/home/developer/.eclipse \
+#             -v tomcat-repo:/usr/local/tomcat \
+#             -v "$(pwd)"/Projects2:/home/developer/Projects \
+#             -p 8088:8080 --name eclipse-1 eclipse-photon
+#
